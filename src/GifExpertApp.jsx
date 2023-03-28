@@ -5,16 +5,19 @@ export const GifExpertApp = () => {
 
     const [categories, setCategories] = useState(['One Punch', 'Dragon Ball']);
 
-    const onAddCategory = () => {
+    const onAddCategory = (newCategory) => {
         // categories.push('Valorant');
-        setCategories(["Valorant", ...categories]);
+        setCategories([newCategory, ...categories]);
     }
 
     return (
         <>
             <h1>GifExpertApp</h1>
 
-            <AddCategory setCategories={setCategories} />
+            <AddCategory
+                //setCategories={setCategories} 
+                onNewCategory={(value) => onAddCategory(value)}
+            />
 
             <ol>
                 {categories.map(category => {
